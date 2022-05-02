@@ -34,12 +34,12 @@ const AuthReducer = (state: AuthState, action: AuthAction): AuthState => {
                 nombre: ''
             }
         case 'login':
+            const {nombre, userName} = action.payload;
             return {
-                const {nombre, userName} = action.payload
                 validando: false,
                 token: 'ABC123',
-                userName: nombre,
-                nombre: userName
+                userName,
+                nombre
             }
             
     
