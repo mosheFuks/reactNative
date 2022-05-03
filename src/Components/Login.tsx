@@ -57,8 +57,23 @@ const Login = () => {
     setTimeout(() => {
         dispatch({type: 'logout'});
     }, 1500);
-  
   }, [])
+
+  const login = () => {
+      dispatch({
+          type: 'login',
+          payload: {
+              nombre: 'Moshe',
+              userName: 'elMoises'
+          }
+      })
+    }
+
+    const logout = () => {
+        dispatch({
+            type: 'logout'
+        })
+    }
   
   if (state.validando){
       return (
@@ -76,15 +91,15 @@ const Login = () => {
         {(state.token) ? 
         <div className="alert alert-success"> Autenticado como {state.nombre} </div>
         :
-        <div className="alert alert-danger"> No autenticado </div>
+        <div className="alert alert-danger"> No autenticado</div>
         }
 
         {(state.token) ? 
-         <button className="btn btn-danger">
+         <button className="btn btn-danger" onClick={ logout }>
             Logout
         </button>
         :
-        <button className="btn btn-primary m-2">
+        <button className="btn btn-primary m-2" onClick={ login }>
             Login
         </button>
         }
